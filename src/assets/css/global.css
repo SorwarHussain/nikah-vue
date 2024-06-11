@@ -1,0 +1,26 @@
+@font-face {
+    font-family: KohinoorBangla_Regular; /* Define your custom font name here */
+    src: url('@/assets/fonts/KohinoorBangla_Regular.otf');
+    /*font-weight: normal;
+    font-style: normal;*/
+}
+/* Apply the font globally */
+body {
+    /*font-family: 'CustomFont', sans-serif;*/
+    font-family: KohinoorBangla_Regular;
+  }
+  #app {
+    font-family: KohinoorBangla_Regular;
+  }
+  .color{
+    background: #1d6b87;
+    color: #fff;
+}
+.custom-outline-color {
+    border-color: #1d6b87;
+    color:#1d6b87;
+}
+.custom-outline-color:hover{
+    color:white;
+    background: #1d6b87;
+}

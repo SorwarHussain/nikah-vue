@@ -1,0 +1,134 @@
+.contact_e_p {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.contact_e, .contact_p {
+  display: flex;
+  align-items: center;
+}
+.ico {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  margin-top: 20px;
+  color: #1d6b87;
+}
+.contact_e_h, .contact_p_h {
+  text-align: left;
+}
+.contact_e_h h4, .contact_p_h h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+.contact_e_h h6, .contact_p_h h6 {
+  margin: 0;
+  font-size: 1rem;
+  color: #777;
+}
+/*end of contact_e_p*/
+/*end of contact email & phone*/
+/*start of contact page form*/
+.contact_form {
+  /*border: 1px solid sandybrown;*/
+  margin: 50px 20% 5% 20%;
+  padding: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.contact_form p,.contact_form form{
+  width: 100%;
+  font-size: 14px;  
+}
+.contact_form p{
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  font-family: KohinoorBangla_Regular;
+}
+.contact_form input,textarea{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  
+}
+.contact_form input{
+  height: 34px;
+}
+.contact_form fieldset{
+  border: none;
+}
+.contact_form fieldset legend{
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: HindSiliguri_Regular;
+}
+.contact_form sup {
+  color: red;
+}
+.contact_form .btnn {
+  text-align: center;
+
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1d6b87;
+  
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 260px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px auto;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-family: HindSiliguri_Medium;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+@media screen and (max-width:780px){
+  .contact_form {
+    margin: 50px 10% 0 10%;
+    padding: 30px;
+  }
+
+}
+@media screen and (max-width:480px){
+  .contact_form {
+    margin: 50px 5% 0 5%;
+    padding: 15px;
+  }
+}
+.spinner-border {
+  margin-right: 5px;
+}
+/*end of contact page form*/

@@ -1,0 +1,11 @@
+{
+    "bios":[
+        {"id":1,"bioType":"পাত্রীর বায়োডাটা","birthYear":"April 1997","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"},
+        {"id":2,"bioType":"পাত্রীর বায়োডাটা","birthYear":"April 1998","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"},
+        {"id":3,"bioType":"পাত্রের বায়োডাটা","birthYear":"April 1999","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"},
+        {"id":4,"bioType":"পাত্রীর বায়োডাটা","birthYear":"April 2000","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"},
+        {"id":5,"bioType":"পাত্রের বায়োডাটা","birthYear":"April 1998","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"},
+        {"id":6,"bioType":"পাত্রীর বায়োডাটা","birthYear":"April 1999","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"},
+        {"id":7,"bioType":"পাত্রের বায়োডাটা","birthYear":"April 2000","height":"৫' ২","complexion":"ফর্সা","address":"গোয়ানঘাট, সিলেট"}
+    ]
+}
