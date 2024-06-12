@@ -4,6 +4,22 @@
 
 ## How to install
 
+```
+mkdir nikah-vue
+```
+
+```
+cd nikah-vue
+```
+
+```
+git clone git@github.com:SorwarHussain/nikah-vue.git client
+```
+
+```
+cd client
+```
+
 ```sh
 npm install
 ```
