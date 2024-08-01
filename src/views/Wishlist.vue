@@ -1,10 +1,10 @@
 <template>
     <div class="container mt-5 mb-5">
       <h2 class="text-center mb-4">পছন্দের তালিকা</h2>
-      <div v-if="useWishStore().wishlist.length === 0" class="alert alert-info" role="alert">
+      <div v-if="wishlist.length === 0" class="alert alert-info" role="alert">
         Your wishlist is empty.
       </div>
-      <table v-if="useWishStore().wishlist.length > 0" class="table table-striped table-hover table-bordered text-center">
+      <table v-if="wishlist.length > 0" class="table table-striped table-hover table-bordered text-center">
         <thead class="thead-light">
           <tr>
             <th scope="col">ক্র.নং</th>
@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(profileId, index) in useWishStore().wishlist" :key="profileId">
+          <tr v-for="(profileId, index) in wishlist" :key="profileId">
             <th scope="row">{{ index + 1 }}</th>          
             <td>
                 <router-link :to="{ name: 'BioDetails', params: { id: profileId } }" class="bt btn btn-sm mx-2 custom-outline-color">ID: {{ profileId }}</router-link>
@@ -31,39 +31,34 @@
     </div>
   </template>
   <script setup>
+  import { ref, onMounted } from 'vue';
   import { useWishStore } from '@/stores/wishlist';
-  import {storeToRefs} from "pinia";
-  const wishstore = storeToRefs(useWishStore());
-  </script>
-  <script>
-  import { useWishStore } from '@/stores/wishlist';
-  //const wishstore = storeToRefs(useWishStore());
+  import { storeToRefs } from 'pinia';
+  import { useRoute } from 'vue-router';
+  
+  const wishStore = useWishStore();
+  const { wishlist } = storeToRefs(wishStore);
+  import router from "@/router";
 
-  export default {
-    data() {
-      return {        
-      };
-    },
-    async mounted() {
-        const wishstore = useWishStore();
-        wishstore.fetchWishlist();
-    },
-    methods: {
-    async handleWishlist(id) {
-      const wishstore = useWishStore();
-     try {
-          await wishstore.removeFromWishlist(id);
-      } catch (error) {
-        console.error(error);
-      } 
-    },
-    },
-    /*async created() {
-    const wishstore = useWishStore();
-    wishstore.fetchWishlist();
-   // await this.checkWishlist();
-    }*/
-  };
+  const route = useRoute();
+  
+  async function handleWishlist(id) {
+    try {
+      await wishStore.removeFromWishlist(id);
+      if (wishlist.value.length === 0) {
+        router.push({ name: 'Home' });
+      }
+    } catch (error) {
+      console.error('Error removing from wishlist:', error);
+    }
+  }
+  onMounted(async () => {
+  try {
+    await wishStore.fetchWishlist();
+  } catch (error) {
+    console.error('Error fetching wishlist:', error);
+  }
+});
   </script>
   
   <style scoped>

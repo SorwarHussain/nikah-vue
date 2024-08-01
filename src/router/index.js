@@ -19,6 +19,8 @@ import Wishlist from '../views/Wishlist.vue'
 import AdminProfiles from '../views/Admin/Profiles.vue'
 import AdminDonates from '../views/Admin/Donates.vue'
 import AdminUsers from '../views/Admin/Users.vue'
+//
+import Verify from '../views/auth/Verify.vue'
 
 const BASE_URL = '/'; 
 const routes = [
@@ -36,13 +38,13 @@ const routes = [
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
-      beforeEnter: (to, from, next) => {
+      /*beforeEnter: (to, from, next) => {
           if (localStorage.getItem('token')) {
               next();
           } else {
               next({name: 'Home'});
           }
-      }
+      }*/
   },
     {
       path: '/profile/:id?',
@@ -128,6 +130,18 @@ const routes = [
       component: wishlist
     },*/
       // 404 catchall
+      {
+        path: '/api/auth/email/verify',
+        name: 'verify',
+        component: Verify,
+        /*beforeEnter: (to, from, next) => {
+            if (localStorage.getItem('token')) {
+                next({name: 'Dashboard'});
+            } else {
+                next();
+            }
+        }*/
+    },
   {
     path: '/:catchAll(.*)',
     name: 'NotFound',

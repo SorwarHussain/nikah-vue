@@ -244,21 +244,7 @@
     </div>  
   </div>
     <div class="col-12">
-        <label class="form-label">ভাইদের সম্পর্কে তথ্য</label>
-        <textarea class="form-control" rows="3" v-model="form.brotherDetails"></textarea>
-        <div v-if="errors.brotherDetails" class="invalid-feedback">
-                          {{ errors.brotherDetails[0] }}
-        </div>  
-    </div> 
-     <div class="col-12">
-        <label class="form-label">বোনদের সম্পর্কে তথ্য</label>
-        <textarea class="form-control" rows="3" v-model="form.sisterDetails"></textarea>
-        <div v-if="errors.sisterDetails" class="invalid-feedback">
-                          {{ errors.sisterDetails[0] }}
-        </div>  
-    </div> 
-    <div class="col-12">
-        <label class="form-label">চাচা মামাদের সম্পর্কে তথ্য</label>
+        <label class="form-label"> ভাই, বোন ও চাচা-মামাদের সম্পর্কে তথ্য</label>
         <textarea class="form-control" rows="3" v-model="form.uncle"></textarea>
         <div v-if="errors.uncle" class="invalid-feedback">
                           {{ errors.uncle[0] }}
@@ -399,8 +385,6 @@ export default {
         motherOccupation:'', 
         brotherNum:'', 
         sisterNum:'',
-        brotherDetails:'',
-        sisterDetails:'',
         uncle:'',
         familyStatus:'',
         familyDeen:'',
@@ -426,9 +410,10 @@ export default {
   methods: {
     async submitForm() {
       const profileStore = useProfileStore();
-
+      console.log('before submit6');
+      console.log(this.profile);
       try {
-        if (this.profile) {
+        if (this.profile && this.profile.id) {
           await profileStore.updateProfile(this.form);
         } else {
           await profileStore.saveProfile(this.form);
@@ -442,10 +427,12 @@ export default {
     }
   },
   created() {
+    console.log('creaate');
     const profileStore = useProfileStore();
     const id = this.id || this.$route.params.id;
     profileStore.fetchProfile(id);
-    //onsole.log(this.$route.params.id);
+    //console.log(this.$route.params.id);
+    console.log(this.profile);
   }
 };
 </script>

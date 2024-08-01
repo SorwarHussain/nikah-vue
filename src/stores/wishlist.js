@@ -8,7 +8,7 @@ const $toast = useToast();
 
 export const useWishStore = defineStore('wishlist', {
   state: () => ({
-    wishlist: null,
+    wishlist: [],
   }),
   actions: {
     isInWishlist(id) {

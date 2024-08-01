@@ -43,6 +43,7 @@ export default {
   async mounted() {
     try {
       const response = await axios.get('/sadakah');
+      console.log(response.data);
       this.sadakahs = response.data;
     } catch (error) {
       console.error("Error fetching biodata:", error.message);

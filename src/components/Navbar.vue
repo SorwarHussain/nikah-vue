@@ -45,7 +45,7 @@
 			  </div>
 			  <div v-else class="dropdown-menu">
 				<router-link
-				  class="dropdown-item"
+				  class="dropdown-item" v-if="Profid"
 				  :to="{ name: 'BioDetails', params: { id: Profid   } }"
 				>
 				  <i class="fas fa-user-alt"></i>&ensp; Profile
@@ -54,7 +54,9 @@
 				  class="dropdown-item"
 				  :to="{ name: 'Profile' }"
 				>
-				  <i class="fas fa-user-edit"></i>&ensp; Edit Profile
+				  <i class="fas fa-user-edit"></i>&ensp;
+				  <span v-if="Profid"> Edit Profile</span>
+				  <span v-else> Create Profile</span>
 				</router-link>
 				<router-link
 				  class="dropdown-item"

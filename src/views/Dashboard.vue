@@ -1,10 +1,11 @@
 <script setup>
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import axios from "axios";
 import {useAuthStore} from "@/stores/auth";
+import { useRouter } from "vue-router";
 
 const {sendVerificationEmail } = useAuthStore();
-
+const router = useRouter();
 const verifiedMessage = ref(null);
 
 onMounted(async () => {
@@ -15,6 +16,11 @@ onMounted(async () => {
     if (e.response.status === 403) {
       verifiedMessage.value = e.response.data.message;
     }
+  }
+});
+watch(verifiedMessage, (newValue) => {
+  if (!newValue) {
+    router.push({ name: 'Home' });
   }
 });
 

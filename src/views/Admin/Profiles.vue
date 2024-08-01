@@ -19,9 +19,13 @@
                 <router-link :to="{ name: 'Profile', params: { id: profile.id } }" class="bt btn btn-sm mx-2 custom-outline-color">ID: {{ profile.id }}</router-link>
             </td>
             <td>
-                <div class="d-flex justify-content-center">
-              <button class="btn btn-danger">
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-danger"  v-if="!profile.is_approved">
+                <i class="fas fa-heart-broken"></i>Not Approved                
+              </button>
+              <button class="btn btn-success" v-else>
                 <i class="fas fa-heart-broken"></i> 
+              Approved
               </button>
             </div>
             </td>
@@ -41,7 +45,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get('/biodata');
+      const response = await axios.get('/admin/biodata');
       this.bios = response.data;
     } catch (error) {
       console.error("Error fetching biodata:", error.message);
